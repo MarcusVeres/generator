@@ -13,25 +13,23 @@
         "App 5"
     ];
     var array_of_videos = [
-        "Khan Academy - Mathematics",
-        "Brightstorm - English Grammar",
-        "Crash Course - World History",
-        "Various - Natural Science",
+        "Mathematics (Khan Academy)",
+        "English Grammar (BrightStorm)",
+        "World History (Crash Course)",
+        "Natural Science (Various)",
     ];
     var array_of_books = [
-        "CK-12 Middle School Math - Grade 7",
-        "Algebra Explorations, Pre-K through Grade 7",
-        "Ck-12 Middle School Math - Grade 8",
-        "CK-12 Life Science for Middle School",
-        "CK-12 Earth Science for Middle School",
-        "CK-12 Physical Science for Middle School",
+        "Middle School Math - Grade 7",
+        "Algebra Explorations",
+        "Middle School Math - Grade 8",
+        "Life Science for Middle School",
+        "Earth Science for Middle School",
+        "Physical Science for Middle School",
         "Basic Speller Student Materials",
-        "English 1- Ms. Stout",
+        "English 1",
         "8th Grade Science ",
         "Foundations of Science Core Concepts",
-        "CK-12 Understanding Biodiversity",
-        "Andersen's Fairy Tales",
-        "The Complete Works of William Shakespeare"
+        "Understanding Biodiversity"
     ];
 
     // builds out the data set
@@ -189,11 +187,26 @@
             
 
             // --------------------------
-            // boy || girl ratio ( for that filtering )
-            entry.boy_ratio = (Math.random() * 4 + 3) / 10; // random % between 30 and 70
-            entry.girl_ratio = 1 - entry.boy_ratio;        
+            // ratios for filtering
             
-            // insert the entry
+            entry.ratios = {};
+
+            // gender
+            entry.ratios.gender = {};
+            entry.ratios.gender.boy_ratio = (Math.random() * 4 + 3) / 10; // random % between 30 and 70
+            entry.ratios.gender.girl_ratio = 1 - entry.ratios.gender.boy_ratio;        
+            
+            // age based
+            // hard-coded ; will randomize later
+            entry.ratios.age = {
+                "6_8"   : 0.28,
+                "9_11"  : 0.26,
+                "12_14" : 0.22,
+                "15_18" : 0.24
+            }
+
+            // --------------------------
+            // insert the entry into the array of entries
             output[date_bucket] = entry;
         }
 
